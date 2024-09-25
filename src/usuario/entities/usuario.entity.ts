@@ -46,7 +46,6 @@ export class Usuario {
   @OneToMany(
     () => Comentario,
     comentario => comentario.usuario,
-    { eager: true, nullable: true },
   )
   comentarios: Comentario[];
 

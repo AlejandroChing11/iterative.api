@@ -147,4 +147,19 @@ export class PublicacionService {
       message: `Publicacion con el id:${id}, fue eliminada`
     };
   }
+
+  async findPublicacionById(id: string) {
+    const publicacion = await this.publicacionRepository.findOne({
+      where: {
+        id
+      }
+    });
+
+    if (!publicacion) {
+      throw new NotFoundException(`Publicacion con el id:${id}, no fue encontrada`);
+    }
+
+    return publicacion;
+  }
+
 }

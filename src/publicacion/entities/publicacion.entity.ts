@@ -18,9 +18,9 @@ export class Publicacion {
   @OneToMany(
     () => Comentario,
     comentario => comentario.publicacion,
-    { eager: true, nullable: true }
+    { eager: true, cascade: true }
   )
-  comentarios: string[];
+  comentarios: Comentario[];
 
   @OneToOne(
     () => ContenidoMultimedia,

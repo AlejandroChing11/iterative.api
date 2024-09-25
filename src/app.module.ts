@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+
 import { UsuarioModule } from './usuario/usuario.module';
-import { PublicacionModule } from './publicacion/publicacion.module';
 import { ComentarioModule } from './comentario/comentario.module';
+import { PublicacionModule } from './publicacion/publicacion.module';
+
 import { join } from 'path';
-import { FilesModule } from './files/files.module';
 
 @Module({
   imports: [
@@ -26,7 +27,6 @@ import { FilesModule } from './files/files.module';
     UsuarioModule,
     PublicacionModule,
     ComentarioModule,
-    FilesModule
   ],
   controllers: [],
   providers: [],

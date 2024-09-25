@@ -14,6 +14,7 @@ import { ContenidoMultimedia } from './entities/contenido-multimedia.entity';
   imports: [
     TypeOrmModule.forFeature([Publicacion, ContenidoMultimedia]),
     UsuarioModule
-  ]
+  ],
+  exports: [PublicacionService]
 })
 export class PublicacionModule { }

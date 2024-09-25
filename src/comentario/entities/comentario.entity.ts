@@ -1,6 +1,7 @@
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+
 import { Publicacion } from "src/publicacion/entities/publicacion.entity";
 import { Usuario } from "src/usuario/entities/usuario.entity";
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Comentario {
@@ -10,18 +11,22 @@ export class Comentario {
 
   @ManyToOne(
     () => Usuario,
-    usuario => usuario.comentarios
+    usuario => usuario.comentarios,
+    { eager: true }
   )
-  usuario: string;
+  usuario: Usuario;
 
   @Column('text')
   contenido: string;
 
   @ManyToOne(
     () => Publicacion,
-    publicacion => publicacion.comentarios
+    publicacion => publicacion.comentarios,
+    {
+      onDelete: 'CASCADE',
+    }
   )
-  publicacion: string;
+  publicacion: Publicacion;
 
   @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   fecha_publicacion: Date;
