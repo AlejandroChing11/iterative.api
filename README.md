@@ -20,7 +20,7 @@ Prueba para desarrollador backend donde se solicitó un aplicativo xyz para real
 git clone https://github.com/AlejandroChing11/iterative.api.git
 ```
 
-2. Ya teniendo el proyecto localmente lo primero que debemos hacer es difinir nuestras variables de entorno .env, en el proyecto hay un archivo que se llama .env.template. Renombralo a .env y cambia las variables a tu caso.
+2. Ya teniendo el proyecto localmente lo primero que debemos hacer es difinir nuestras variables de entorno .env, en el proyecto hay un archivo que se llama .env.template. Renombralo a .env y cambia las variables a tu caso. Recomendaria en DB_PORT colocar 5432
 
 ```
   .env.template
