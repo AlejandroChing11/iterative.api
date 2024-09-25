@@ -1,6 +1,8 @@
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+
 import { Comentario } from "src/comentario/entities/comentario.entity";
 import { Usuario } from "src/usuario/entities/usuario.entity";
-import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { ContenidoMultimedia } from "./contenido-multimedia.entity";
 
 @Entity()
 export class Publicacion {
@@ -9,20 +11,28 @@ export class Publicacion {
   id: string;
 
   @Column('text', {
-    array: true,
-    default: []
+    default: 'imagen'
   })
   tipo_publicacion: string;
 
   @OneToMany(
     () => Comentario,
     comentario => comentario.publicacion,
-    { eager: true }
+    { eager: true, nullable: true }
   )
   comentarios: string[];
 
-  @Column('text')
-  contenido: string;
+  @OneToOne(
+    () => ContenidoMultimedia,
+    contenidoMultimedia => contenidoMultimedia.publicacion,
+    {
+      onDelete: 'CASCADE',
+      cascade: true,
+      eager: true,
+    }
+  )
+  @JoinColumn()
+  contenido_multimedia: ContenidoMultimedia;
 
   @Column('text')
   descripcion: string;
@@ -34,6 +44,6 @@ export class Publicacion {
     () => Usuario,
     usuario => usuario.publicaciones
   )
-  usuario: string;
+  usuario: Usuario;
 
 }

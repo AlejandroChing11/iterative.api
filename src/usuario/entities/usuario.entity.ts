@@ -1,6 +1,6 @@
 import { Comentario } from "src/comentario/entities/comentario.entity";
 import { Publicacion } from "src/publicacion/entities/publicacion.entity";
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Usuario {
@@ -17,36 +17,37 @@ export class Usuario {
   email: string;
 
   @Column('text', {
-    unique: true
+    unique: true,
   })
   telefono: string;
-
-  @CreateDateColumn({ type: 'timestamp' })
-  fecha_nacimiento: Date;
 
   @Column('text', {
     select: false
   })
   contraseña: string;
 
+  @Column('boolean', {
+    default: true,
+  })
+  activo: boolean;
+
   @Column('text', {
     array: true,
-    default: ['user']
+    default: ['user'],
   })
   roles: string[];
 
   @OneToMany(
     () => Publicacion,
     publicacion => publicacion.usuario,
-    { eager: true }
   )
-  publicaciones: string[];
+  publicaciones: Publicacion[];
 
   @OneToMany(
     () => Comentario,
     comentario => comentario.usuario,
-    { eager: true }
+    { eager: true, nullable: true },
   )
-  comentarios: string[];
+  comentarios: Comentario[];
 
 }

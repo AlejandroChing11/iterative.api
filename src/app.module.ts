@@ -5,6 +5,7 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { PublicacionModule } from './publicacion/publicacion.module';
 import { ComentarioModule } from './comentario/comentario.module';
 import { join } from 'path';
+import { FilesModule } from './files/files.module';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { join } from 'path';
     }),
     UsuarioModule,
     PublicacionModule,
-    ComentarioModule
+    ComentarioModule,
+    FilesModule
   ],
   controllers: [],
   providers: [],
