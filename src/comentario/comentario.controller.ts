@@ -8,6 +8,9 @@ import { ValidRoles } from 'src/usuario/interfaces';
 import { CreateComentarioDto } from './dto/create-comentario.dto';
 import { GetUser } from 'src/usuario/decorators/get-user.decorator';
 
+import { ApiTags } from '@nestjs/swagger';
+
+@ApiTags('Comentarios')
 @Controller('comentarios')
 export class ComentarioController {
   constructor(private readonly comentarioService: ComentarioService) { }

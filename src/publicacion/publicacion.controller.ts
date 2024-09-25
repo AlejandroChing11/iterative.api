@@ -11,6 +11,9 @@ import { GetUser } from 'src/usuario/decorators/get-user.decorator';
 import { CreatePublicacionDto } from './dto/create-publicacion.dto';
 import { UpdatePublicacionDto } from './dto/update-publicacion.dto';
 
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
+
+@ApiTags('Publicaciones')
 @Controller('publicaciones')
 export class PublicacionController {
 
@@ -18,6 +21,10 @@ export class PublicacionController {
     private readonly publicacionService: PublicacionService
   ) { }
 
+  @ApiResponse({
+    status: 201,
+    description: 'File Adjunta',
+  })
   @Auth(ValidRoles.user)
   @Post()
   @UseInterceptors(

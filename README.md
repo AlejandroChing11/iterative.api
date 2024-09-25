@@ -7,67 +7,64 @@
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+    
+## Descripción
 
-## Description
+Prueba para desarrollador backend donde se solicitó un aplicativo xyz para realizar publicaciones y comentarios.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Pasos para correr el proyecto en local
 
-## Installation
+1. El primer paso es clonar el proyecto en tu maquina local desde github
 
 ```bash
-$ yarn install
+git clone https://github.com/AlejandroChing11/iterative.api.git
 ```
+
+2. Ya teniendo el proyecto localmente lo primero que debemos hacer es difinir nuestras variables de entorno .env, en el proyecto hay un archivo que se llama .env.template. Renombralo a .env y cambia las variables a tu caso.
+
+```
+  .env.template
+```
+
+3. Ya teniendo las variables de entorno listas, debemos ejecutar el siguiente comando para instalar todas las dependencias del proyecto.
+
+```bash
+  yarn
+```
+
+o si usas npm
+
+```bash
+  npm install
+```
+
+4. Luego de la instalacion de las variables debemos levantar la base de datos, la cual está siendo virtualizada con docker para mayor comodidad.
+
+```bash
+  docker compose up -d
+```
+
+esto será para levantar la base de datos y además instalara la imagen de postgres si no lo tiene localmente. Usualmente tarde de entre a 5 a 10 minutos.
 
 ## Running the app
 
 ```bash
 # development
-$ yarn run start
-
 # watch mode
-$ yarn run start:dev
+$ yarn start:dev
 
-# production mode
-$ yarn run start:prod
+## Contacto
+
+Si en algun momento algo llega a fallar aquí están mis contactos directos:
+
+alejandroching2004@hotmail.com
+
 ```
 
-## Test
+## Documentacion grafica
 
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+```
+  localhost:3000/api/docs
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Aqui se lograrán ver de una manera un poco más grafica los endpoint, los dto's y las respuestas
